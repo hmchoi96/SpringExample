@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+아까 만든 인터페이스 파일을 구현하기 위해 xml을 씀
+html과 같은 문법을 씀 / html은 화면을 꾸미기 위해, xml 은 데이터를 저장하기위해 씀 (json과 비슷)
+요즘 xml은 프로젝트안의 설정을 넣을때 주로 쓰인다 - 이 파일도 설정에 가깝다.
+데이터 조회할때 문제 생기면 확인하기
+ -->
+
+<!-- dtd - xml 안에 쓰여질 태그 목록들을 미리 저장해놓은것 / 일종의 틀 / dtd에 정의된 태그들만 써야함 -->
+<!--   //mapper.xml 파일 DTD 를 위한 코드 -->
+ <!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 이 xml은 used_goods의 인터페이스 파일을 연결해서 쓸것이다. -->
+		<!-- namespace 속성에 패키지명을 포함한 풀네임이 경로로 들어가야함 -->
+ <mapper namespace="com.eyecile.ex.database.dao.UsedGoodsDAO">
+ 
+  <!-- 인터페이스 파일안의 메소드를 연결하기 위한 태그 / 메소드로 수행하려던거가 select이기때문에 select 태그를 써야함 -->
+  								<!-- 메소드 리턴타입 적는곳 -->
+  							<!-- 셀렉트하면 여러가지 나오기때문에 list는 기본으로 설정되어 있어 안적어도 됨 -->
+  								<!-- 리스트 안에 있는 제너릭 주소 넣기 -->
+ 	<select id="selectUsedGoodsList" resultType="com.eyecile.ex.database.model.UsedGoods">
+ 		select
+ 			`id`
+ 			, `title`
+ 			, `price`
+ 			, `sellerId`
+ 			, `description`
+ 			, `picture`
+ 			, `createdAt`
+ 			, `updatedAt`
+ 		from
+ 			`used_goods`;
+ 	</select>
+ 
+ </mapper>
