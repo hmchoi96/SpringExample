@@ -13,6 +13,7 @@ import com.eyecile.ex.database.model.UsedGoods;
 @Controller
 public class UsedGoodsController {
 	//리스펀스 리퀘스트에 문제가 생겼을때 컨트롤러 확인하기
+	//컨트롤러 - BO - DAO - mapper.xml - DAO - BO - 컨트롤러 로 리턴
 	@Autowired
 	private UsedGoodsBO usedGoodsBO;
 	
